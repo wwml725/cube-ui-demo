@@ -1,30 +1,79 @@
 <template>
-    <div class="ScrollTab-Demo">
-      <v-header :go-back="true" title="ScrollTab-Demo"></v-header>
-
+  <div class="ScrollTab-Demo">
+    <v-header :go-back="true" title="ScrollTab-Demo"></v-header>
+    <div class="left-panel">
+      <cube-scroll>
+        <cube-tab-bar v-model="selectedLabel" :data="tabs" @change="changeHandler"></cube-tab-bar>
+      </cube-scroll>
     </div>
+    <div class="right-panel">
+      <cube-scroll ref="scroll">
+        <ul>
+          <li v-for="(hero, index) in scrollData">
+            <img :src="hero.avatar" alt="">
+            <span>{{hero.name}}</span>
+          </li>
+        </ul>
+      </cube-scroll>
+    </div>
+  </div>
 </template>
 
 <script>
   import VHeader from 'base/v-header/v-header'
+  import * as DATAS from '../data/index'
 
+  const DATA_MAP = {
+    '全部': DATAS.ALL_HEROES,
+    '近战': DATAS.MELEE_HEROES,
+    '远程': DATAS.REMOTE_HEROES,
+    '辅助': DATAS.SUPPORT_HEROES,
+    '法师': DATAS.MAGIC_HEROES,
+    '打野': DATAS.JUNGLE_HEROES,
+    '坦克': DATAS.TANK_HEROES,
+    '隐身': DATAS.INVISIBLE_HEROES,
+    '后期': DATAS.CARRY_HEROES,
+    '闪烁': DATAS.BLINK_HEROES,
+    '爆发': DATAS.HIGH_DAMAGE_HEROES,
+    '召唤': DATAS.INVOKE_HEROES,
+    '眩晕': DATAS.DIZZY_HEROES,
+    '治疗': DATAS.HEALER_HEROES
+  }
+  const genTabLabels = Object.keys(DATA_MAP).map(label => ({
+    label
+  }))
   export default {
-        name: "ScrollTab-Demo",
-        data() {
-            return {
-                msg: 'ScrollTab-Demo'
-            }
-        },
-        created() {
+    name: "ScrollTab-Demo",
+    data() {
+      return {
+        msg: 'ScrollTab-Demo',
+        selectedLabel: '全部',
+        scrollData: [],
+        tabs: genTabLabels
+      }
+    },
 
-        },
-        mounted() {
-
-        },
-        methods: {},
-        computed: {},
-        components: {VHeader}
-    }
+    created () {
+      this.scrollData = DATA_MAP[this.selectedLabel]
+    },
+    methods: {
+      changeHandler (label) {
+        this.scrollData = DATA_MAP[label]
+        this.$nextTick(() => {
+          // reset better-scroll'postion
+          this.$refs.scroll.scrollTo(0, 0)
+          // you need to caculate scroll-content height when your dom has changed in nextTick
+          this.$refs.scroll.refresh()
+        })
+      }
+    },
+    watch: {
+      selectedLabel (newV) {
+        console.log(newV)
+      }
+    },
+    components: {VHeader}
+  }
 </script>
 
 <style scoped lang="stylus">
@@ -34,6 +83,48 @@
     bottom: 0
     left: 0
     right: 0
-    z-index :10
-    background : #dcdcdc
+    z-index: 10
+    background: #dcdcdc
+  .cube-scroll-list-wrapper
+    .cube-tab-bar
+      flex-wrap: wrap
+      >>>.cube-tab
+        width: 100%
+        flex-basis: unset
+        height: 40px
+        line-height: 40px
+        font-size: 14px
+        color: #db8931
+        transition: all .3s ease-in
+        &.cube-tab_active
+          color: #fff
+          font-size: 16px
+          background-color: #a74b00
+  .left-panel
+    position: absolute
+    top: 44px
+    left: 0
+    bottom: 0
+    width: 80px
+    background-color: #2d2d2d
+  .right-panel
+    position: absolute
+    top: 44px
+    left: 80px
+    right: 0
+    bottom: 0
+    background-color: #171819
+    li
+      height: 80px
+      display: flex
+      align-items: center
+      background-color: #171819
+      img
+        width: 102px
+        margin: 0 10px 0 20px
+        border: 1px solid #ff9f38
+        border-radius: 3px
+        box-shadow: 0 1px 5px 0 #000
+      span
+        color: #db8931
 </style>
