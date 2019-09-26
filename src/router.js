@@ -11,6 +11,7 @@ import Tabbar from 'components/tabbar/Tabbar/Tabbar'
 import TabBasic from 'components/tabbar/Tab-basic/Tab-basic'
 import TabComposite from 'components/tabbar/Tab-composite/Tab-composite'
 import ScrollTabDemo from 'components/tabbar/ScrollTab-Demo/ScrollTab-Demo'
+import test from 'components/tabbar/test/test'
 
 // import Basic from './views/Basic基础组件/Basic基础组件'
 
@@ -84,6 +85,10 @@ export default new Router({
     {
       path:'/tabbar/ScrollTab-Demo',
       component:ScrollTabDemo
+    },
+    {
+      path:'/tabbar/test',
+      component:test
     }
   ]
 })

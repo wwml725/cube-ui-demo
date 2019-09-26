@@ -8,6 +8,7 @@
         <cube-button @click="skip('/TabBasic')">Tab-basic</cube-button>
         <cube-button @click="skip('/Tab-composite')">Tab-composite</cube-button>
         <cube-button @click="skip('/ScrollTab-Demo')">ScrollTab-Demo</cube-button>
+        <cube-button @click="skip('/test')">Test</cube-button>
       </div>
     </div>
   </transition>
