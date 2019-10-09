@@ -1,6 +1,5 @@
 <template>
   <transition name="slide">
-
     <div class="tabbar-container">
       <v-header :go-back="true" title="Tabbar"></v-header>
       <div class="tabbar-wrapper">

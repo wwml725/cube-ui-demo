@@ -26,11 +26,23 @@
     <div class="select-item">
       <router-link to="/tabbar">Tabbar</router-link>
       <i class="icon-keyboard_arrow_right"></i>
-
     </div>
     <h3>Form表单组件</h3>
     <h3>Popup弹窗组件</h3>
     <h3>Scroll组件</h3>
+    <div class="select-item">
+      <router-link to="/scroll">Scroll</router-link>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
+    <div class="select-item">
+      <router-link to="/slide">Slide</router-link>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
+    <div class="select-item">
+      <router-link to="/IndexList">IndexList</router-link>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
+
     <cube-button :light="true">
       <div @click="skip('/v-button')">测试</div>
     </cube-button>
