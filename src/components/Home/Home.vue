@@ -1,8 +1,12 @@
 <template>
   <div class="home">
     <v-Header :go-back="false" title="cube-ui"></v-Header>
+    <div class="select-item" :class="{active:true}" >
+      <p>TEST</p>
+      <i class="icon-keyboard_arrow_right"></i>
+    </div>
     <h3>Basic基础</h3>
-    <div class="select-item" @click="skip('/v-button')">
+    <div class="select-item" :class="{active:true}" @click="skip('/v-button')">
       <p>Button</p>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
@@ -10,23 +14,23 @@
     <div class="select-item">
       <router-link to="/v-loading">Loading</router-link>
       <i class="icon-keyboard_arrow_right"></i>
-
     </div>
 
     <div class="select-item">
       <router-link to="/tip">Tip</router-link>
       <i class="icon-keyboard_arrow_right"></i>
-
     </div>
 
     <div class="select-item">
       <router-link to="/toolbar">Toobar</router-link>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
+
     <div class="select-item">
       <router-link to="/tabbar">Tabbar</router-link>
       <i class="icon-keyboard_arrow_right"></i>
     </div>
+
     <h3>Form表单组件</h3>
     <h3>Popup弹窗组件</h3>
     <h3>Scroll组件</h3>
@@ -93,6 +97,9 @@
     padding: 0 10px
     color: #a8a8a8
 
+  .select-item:active
+    background: #fe452e
+
   .select-item
     width: 100%
     height: 35px
@@ -117,6 +124,7 @@
       top:0
       height:35px
       line-height 35px
+
 
 
 

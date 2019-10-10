@@ -21,6 +21,7 @@
 <script type="text/ecmascript-6">
   import vPage from 'components/v-page/v-page.vue'
   import singerData from '../data/singer.json'
+
   export default {
     components: {
       vPage
@@ -42,9 +43,8 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-/*
-  import "common/stylus/variable.styl"
-*/
+  @import "~common/stylus/variable"
+
   .view-wrapper
     position: fixed
     top: 40px

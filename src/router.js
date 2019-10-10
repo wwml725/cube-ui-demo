@@ -26,6 +26,12 @@ import ScrollTest from 'components/v-scroll/test/test'
 import IndexList from 'components/IndexList/IndexList'
 import IndexListDefault from 'components/IndexList/default/default'
 import custom from 'components/IndexList/custom/custom'
+//pull-up-load
+import pullUpLoad from 'components/IndexList/pull-up-load/pull-up-load'
+import pullDownRefresh from 'components/IndexList/pull-down-refresh/pull-down-refresh'
+
+
+
 // import Basic from './views/Basic基础组件/Basic基础组件'
 
 Vue.use(Router)
@@ -117,6 +123,8 @@ export default new Router({
     {path:'/IndexList', component:IndexList},
     {path:'/IndexList/default', component:IndexListDefault},
     {path:'/IndexList/custom', component:custom},
-
+    //pull-up-load
+    {path:'/IndexList/pullUpLoad', component:pullUpLoad},
+    {path:'/IndexList/pullDownRefresh', component:pullDownRefresh},
   ]
 })

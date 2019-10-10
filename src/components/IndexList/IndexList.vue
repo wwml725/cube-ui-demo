@@ -4,6 +4,8 @@
     <div class="tabbar-wrapper">
       <cube-button @click="skip('/Default')">1.Default</cube-button>
       <cube-button @click="skip('/custom')">2.custom</cube-button>
+      <cube-button @click="skip('/pullUpLoad')">3.Pull Up Load</cube-button>
+      <cube-button @click="skip('/pullDownRefresh')">4.Pull Down Refresh</cube-button>
     </div>
   </div>
 </template>
